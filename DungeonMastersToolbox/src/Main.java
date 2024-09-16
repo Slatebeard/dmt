@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 
@@ -8,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean running = true;
-        NameGenerator generator = new NameGenerator();
+
 
 
         while (running) {
@@ -21,7 +18,7 @@ public class Main {
 
             switch (userChoice) {
                 case 1:
-//                    NameGenerator generator = new NameGenerator();
+                    NameGenerator generator = new NameGenerator();
                     break;
                 case 3:
 //                    diceRoller(sc, diceBank);
