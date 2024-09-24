@@ -18,13 +18,15 @@ public class Main {
 
             switch (userChoice) {
                 case 1:
-                    NameGenerator generator = new NameGenerator();
+                    new NameGenerator();
+                    break;
+                case 2:
                     break;
                 case 3:
-//                    diceRoller(sc, diceBank);
+                    new DiceRoller();
                     break;
                 case 4:
-//                    monsterMaker(sc);
+//                    new monsterCreator();
                     break;
                 case 7:
                     running = false;

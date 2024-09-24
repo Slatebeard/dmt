@@ -1,28 +1,28 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class NameGenerator {
+public class NameGenerator2 {
     Random rand = new Random();
     Scanner sc = new Scanner(System.in);
 
     String chosenLang = "";
 
-    public NameGenerator() {
+    public void NameGenerator() {
         runMenu();
     }
 
-
+    // Main menu where the user selects language, gender, and amount
     private void runMenu() {
         boolean running = true;
 
         while (running) {
             // Clear the console and show the menu
             QOL.clearConsole();
-            System.out.print(Art.logo);;
+            System.out.print(Art.logo);
             System.out.println(Art.nameGenMenu1);
             System.out.print(Art.placer);
 
-            // Ask for language
+            // Get the language choice
             int userChoice = sc.nextInt();
 
             switch (userChoice) {
@@ -40,7 +40,7 @@ public class NameGenerator {
             // Ask for gender
             QOL.clearConsole();
             System.out.print(Art.logo);
-            System.out.println(Art.nameGenMenu2);
+            System.out.println(Art.nameGenMenu2);  // Presuming this menu shows gender options
             int genderChoice = sc.nextInt();
             String gender = (genderChoice == 1) ? "Male" : "Female";
 
@@ -49,45 +49,19 @@ public class NameGenerator {
             System.out.print(Art.logo);
             System.out.println(Art.amount);
             int amount = sc.nextInt();
-            System.out.print("\n");
 
-            boolean regenerate = true;
+            // Build and display the names based on selections
+            nameBuilder(chosenLang, gender, amount);
 
-            while (regenerate) {
-
-                nameBuilder(chosenLang, gender, amount);
-
-                System.out.println("\nWhat would you like to do next?");
-                System.out.println("1. Re-generate names");
-                System.out.println("2. Generate new names (change language, gender, or amount)");
-                System.out.println("3. Exit");
-
-                int nextAction = sc.nextInt();
-                sc.nextLine();
-
-                switch (nextAction) {
-                    case 1:
-                        regenerate = true;
-                        QOL.clearConsole();
-                        System.out.print(Art.logo);
-                        break;
-                    case 2:
-                        regenerate = false;
-                        QOL.clearConsole();
-                        System.out.print(Art.logo);
-                        break;
-                    case 3:
-                        regenerate = false;
-                        running = false;
-                        break;
-                    default:
-                        System.out.println("Invalid choice. Please select again.");
-                        regenerate = true;  // Keep the regenerate loop running
-                }
+            // After generating names, you could ask if the user wants to generate more or exit
+            System.out.println("Generate more names? (y/n)");
+            sc.nextLine();  // Consume newline
+            String continueChoice = sc.nextLine();
+            if (continueChoice.equalsIgnoreCase("n")) {
+                running = false;
             }
         }
     }
-
 
     // Method to build names based on chosen language, gender, and amount
     private void nameBuilder(String language, String gender, int amount) {
@@ -119,7 +93,7 @@ public class NameGenerator {
                 return;
             }
 
-
+            // Print the generated name
             System.out.println((i + 1) + ". " + randFname1 + randFname2 + " " + randLname1 + randLname2);
         }
     }

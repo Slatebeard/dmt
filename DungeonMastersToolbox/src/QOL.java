@@ -14,4 +14,17 @@ public class QOL {
 
 
     }
+
+    public static String makeRed (int number) {
+        String RED = "\033[0;31m";
+        String RESET = "\033[0m";
+        return RED + number + RESET;
+    }
+
+    public static String makeGreen (int number) {
+        String GREEN = "\033[0;32m";
+        String RESET = "\033[0m";
+        return GREEN + number + RESET;
+    }
+
 }

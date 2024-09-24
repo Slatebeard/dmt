@@ -1,3 +1,4 @@
+
 public class Art {
 
     public static String logo = """
@@ -8,6 +9,7 @@ public class Art {
               /___,'  \\__,_|_| |_|\\__, |\\___|\\___/|_| |_| \\/    \\/\\__,_|___/\\__\\___|_|   |___/  \\/   \\___/ \\___/|_|_.__/ \\___/_/\\_\\
             \s
             """;
+
     public static String startMenu = """
                                                           +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
                                                           |      1.Name Generator           |
@@ -38,11 +40,44 @@ public class Art {
                                                            +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
             """;
     public static String amount = """
-                                                                       Choose amount.
-                    """;
+                                                               Choose amount.
+            """;
+    public static String diceMenu = """
+                                                        Enter Amount <ENTER> Enter Dice Type
+                                           +~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~+
+                                           |             d2                            d10             |
+                                           !                                                           !
+                                           |             d4                            d12             |
+                                           !                                                           !
+                                           |             d6                            d20             |
+                                           !                                                           !
+                                           |             d8                            d100            |
+                                           +~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~+
+            """;
 
 
     public static String placer = ">";
     public static String spacer = "                                                   ";
     public static String backToMenu = "Press Enter to return to the main menu...";
+    public static String map = """ 
+            +~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+
+            |                                                                                                                                        |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            !                                                                                                                                          !
+            |                                                                                                                                          |
+            +~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+
+            """;
 }
