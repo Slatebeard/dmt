@@ -1,3 +1,4 @@
+import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,6 +16,8 @@ public class DiceRoller {
 
     private void runMenu() {
         boolean running = true;
+        double diceValue = 0;
+
         while (running) {
             QOL.clearConsole();
             System.out.print(Art.logo);
@@ -37,76 +40,44 @@ public class DiceRoller {
                 int result = 0;
                 switch (diceType) {
                     case 2:
+                        diceValue = 2.0;
                         result = rand.nextInt(2) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 6)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 4:
+                        diceValue = 4.0;
                         result = rand.nextInt(4) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 4)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 6:
+                        diceValue = 6.0;
                         result = rand.nextInt(6) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 6)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 8:
+                        diceValue = 8.0;
                         result = rand.nextInt(8) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 8)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 10:
+                        diceValue = 10.0;
                         result = rand.nextInt(10) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 10)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 12:
+                        diceValue = 12.0;
                         result = rand.nextInt(12) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 12)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 20:
+                        diceValue = 20.0;
                         result = rand.nextInt(20) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 20)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     case 100:
+                        diceValue = 100.0;
                         result = rand.nextInt(100) + 1;
-                        if (result == 1)
-                            diceBank.add(QOL.makeRed(result) + "");
-                        else if (result == 100)
-                            diceBank.add(QOL.makeGreen(result) + "");
-                        else
-                            diceBank.add(result + "");
+                        diceBank.add(result + "");
                         break;
                     default:
                         System.out.println("Invalid dice selection.");
@@ -115,9 +86,32 @@ public class DiceRoller {
                 total += result;
             }
 
+
+            String[] aboveAverage = new String[diceAmount];
+            String[] belowAverage = new String[diceAmount];
+
+            int aboveCount = 0;
+            int belowCount = 0;
+
+            // Average % Calculator
+            for (int i = 0; i < diceBank.size(); i++) {
+                double value = Double.parseDouble(diceBank.get(i));
+
+                if (value > (diceValue / 2)) {
+                    aboveAverage[aboveCount++] = String.valueOf(value);
+                } else if (value < (diceValue / 2)) {
+                    belowAverage[belowCount++] = String.valueOf(value);
+                }
+            }
+
+            aboveAverage = Arrays.copyOf(aboveAverage, aboveCount);
+            belowAverage = Arrays.copyOf(belowAverage, belowCount);
+
             System.out.println(diceBank);
             System.out.println("\nTotal: " + total);
-
+            System.out.println("Average: " + (total / diceAmount));
+            System.out.println("As Above: " + aboveAverage.length);
+            System.out.println("So Below: " + belowAverage.length);
 
             diceBank.clear();
 

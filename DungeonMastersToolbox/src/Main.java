@@ -27,8 +27,11 @@ public class Main {
                     break;
                 case 4:
 //                    new monsterCreator();
+                case 5:
+                    HookGenerator hookGenerator = new HookGenerator("/home/slatebeard/java/dmt/DungeonMastersToolbox/data/hook.txt");
+                    hookGenerator.runMenu();
                     break;
-                case 7:
+                case 6:
                     running = false;
                     break;
                 default:

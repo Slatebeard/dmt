@@ -16,7 +16,7 @@ public class Art {
                                                           !      2.Weather Generator        !
                                                           |      3.Dice Roller              |
                                                           !      4.Tome Of Monsters         !
-                                                          |      5.**UNDER CONSTRUCTION**   |
+                                                          |      5.Touch Of Inspiration     |
                                                           !      6.**UNDER CONSTRUCTION**   !
                                                           |      7.Exit                     |
                                                           +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
