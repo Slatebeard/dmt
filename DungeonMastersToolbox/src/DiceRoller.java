@@ -1,4 +1,3 @@
-import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -125,6 +124,12 @@ public class DiceRoller {
             System.out.println("As Above: " + aboveAverage.length);
             System.out.println("So Below: " + belowAverage.length);
 
+
+            System.out.println();
+            //TODO does not work?
+            System.out.println(diceBank.size());
+            System.out.println(diceAmount);
+            System.out.println("Amount of " + diceType + ": " + (aboveAverage.length + belowAverage.length) - diceAmount);
             diceBank.clear();
 
             System.out.println("\nPress Enter to return to the main menu or press 1 to roll some more...");
@@ -137,7 +142,5 @@ public class DiceRoller {
 
 
         }
-
     }
-
 }
