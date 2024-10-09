@@ -107,6 +107,18 @@ public class DiceRoller {
             aboveAverage = Arrays.copyOf(aboveAverage, aboveCount);
             belowAverage = Arrays.copyOf(belowAverage, belowCount);
 
+            for (int i = 0; i < diceBank.size(); i++) {
+                int value = Integer.parseInt(diceBank.get(i));
+
+                if (value == 1) {
+
+                    diceBank.set(i, QOL.makeRed(Integer.parseInt(diceBank.get(i))));
+                } else if (value == diceValue) {
+
+                    diceBank.set(i, QOL.makeGreen(Integer.parseInt(diceBank.get(i))));
+                }
+            }
+
             System.out.println(diceBank);
             System.out.println("\nTotal: " + total);
             System.out.println("Average: " + (total / diceAmount));
