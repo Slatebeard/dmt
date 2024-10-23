@@ -30,7 +30,7 @@ public class Main {
                     case 4:
     //                    new creatureCreator();
                     case 5:
-                        HookGenerator hookGenerator = new HookGenerator("/home/slatebeard/java/dmt/DungeonMastersToolbox/data/hook.txt");
+                        HookGenerator hookGenerator = new HookGenerator("/home/slatebeard/java/dmt/data/hook.txt");
                         hookGenerator.runMenu();
                         break;
                     case 7:

@@ -42,21 +42,56 @@ public class HookGenerator {
         System.out.println(getRandomHook());
     }
 
-    public void runMenu() {  
+    public void runMenu() {
+
+
+        // Variables
         boolean running = true;
         int userChoice;
+
+        // Logic
         while (running) {
             random = new Random();
             QOL.clearConsole();
-            System.out.print(Art.logo);
-            System.out.println(getRandomHook());
-            System.out.println("\nPress Enter to return to the main menu or press 1 to get some more inspiration...");
+            Art.logo();
+            QOL.setLine(1);
+            System.out.println("Enter how many hooks you would like to generate or enter 0 to return to the main menu.");
+            Art.placer();
 
-            if (sc.nextLine().equals("1")) {
-                running = true;
-            } else
-                running = false;
+            try {
+                userChoice = sc.nextInt();
+                sc.nextLine();
+                QOL.setLine(1);
 
+                if (userChoice == 0) {
+                    running = false;
+                    break;
+                }
+
+                //TODO refactor this loope and fix the colors
+
+                int j = 0;
+
+                for (int i = 0; i < userChoice; i++) {
+
+                    if (j % 2 == 0) {
+                        System.out.println(QOL.makeTextGreen(getRandomHook()));
+                        j++;
+                    } else if (j == 1) {
+                        System.out.println(QOL.makeTextRed(getRandomHook()));
+                        j = 0;
+                    }
+                    QOL.setLine(1);
+                }
+                System.out.print("\nPress Enter to return to the main menu or press 1 to get some more inspiration...");
+                if (sc.nextLine().equals("1")) {
+                    running = true;
+                } else
+                    running = false;
+            } catch (Exception e) {
+                System.out.println("Invalid choice. Please try again.");
+                sc.next();
+            }
         }
     }
 }
