@@ -34,14 +34,13 @@ public class Main {
                         hookGenerator.runMenu();
                         break;
                     case 7:
-                        System.out.println("Journey before destination...");
+                        QOL.clearConsole();
+                        System.out.println("Journey Before Destination...");
                         running = false;
                         break;
                     default:
                         System.out.println("Invalid choice. Please try again.");
                         break;
-
-
                 }
             } catch (InputMismatchException e) {
                 Art.backToMenu();
