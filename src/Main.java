@@ -4,17 +4,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        boolean running = true;
 
+        // Objects
+        Scanner sc = new Scanner(System.in);
+
+        // Flags
+        boolean running = true;
 
 
         while (running) {
             QOL.clearConsole();
-            System.out.print(Art.logo);
-            System.out.println(Art.startMenu);
-            System.out.print(Art.placer);
 
+            Art.logo();
+            Art.startMenu();
+            Art.placer();
 
             try {
                 int userChoice = sc.nextInt();
@@ -28,7 +31,8 @@ public class Main {
                         new DiceRoller();
                         break;
                     case 4:
-    //                    new creatureCreator();
+                        new CreatureCreator();
+                        break;
                     case 5:
                         HookGenerator hookGenerator = new HookGenerator("/home/slatebeard/java/dmt/data/hook.txt");
                         hookGenerator.runMenu();

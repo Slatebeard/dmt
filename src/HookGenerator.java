@@ -68,7 +68,7 @@ public class HookGenerator {
                     break;
                 }
 
-                //TODO refactor this loope and fix the colors
+
 
                 int j = 0;
 

@@ -1,17 +1,15 @@
 public abstract class Creature {
 
-    private String name;
-
-    private enum type {
+    public enum type {
         NPC,
         MONSTER,
         PLAYER,
         NAMED_CHARACTER,
-        GOD,
-
+        GOD;
     }
 
-    private enum allignment {
+
+    public enum allignment {
         LAWFUL_GOOD,
         NEUTRAL_GOOD,
         CHAOTIC_GOOD,
@@ -23,7 +21,8 @@ public abstract class Creature {
         CHAOTIC_EVIL;
     }
 
-    private enum size {
+
+    public enum size {
         TINY,
         SMALL,
         MEDIUM,
@@ -32,7 +31,8 @@ public abstract class Creature {
         GARGANTUAN;
     }
 
-    private enum creatureType {
+
+    public enum creatureType {
         ABERRATION,
         BEAST,
         CELESTIAL,
@@ -49,13 +49,32 @@ public abstract class Creature {
         UNDEAD;
     }
 
+    // Fields
+    private Creature.type creatureType;
+    private Creature.allignment creatureAlignment;
+    private Creature.size creatureSize;
+    private Creature.creatureType creatureCategory;
+
+    private String name;
     private int level;
-
     private int healthPoints;
-
     private int armorClass;
-
     private int speed;
 
+
+
+    // Constructor
+    public Creature(String name, Creature.type creatureType, Creature.allignment creatureAlignment, Creature.size creatureSize, Creature.creatureType creatureCategory,
+                    int level, int healthPoints, int armorClass, int speed) {
+        this.name = name;
+        this.creatureType = creatureType;
+        this.creatureAlignment = creatureAlignment;
+        this.creatureSize = creatureSize;
+        this.creatureCategory = creatureCategory;
+        this.level = level;
+        this.healthPoints = healthPoints;
+        this.armorClass = armorClass;
+        this.speed = speed;
+    }
 
 }

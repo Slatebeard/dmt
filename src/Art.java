@@ -55,6 +55,17 @@ public class Art {
                                            +~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~+
             """;
 
+    public static String creatureCreatorMenu = """
+                                                        +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-+
+                                                        |      1.Create Creature         |
+                                                        !      2.Return                  !
+                                                        +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-+
+            """;
+
+
+
+
+
 
     public static String placer = ">";
     public static String spacer = "                                                   ";
@@ -115,17 +126,7 @@ public class Art {
     public static void map() {
         System.out.print(map);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void creatureCreatorMenu() {
+        System.out.print(creatureCreatorMenu);
+    }
 }
