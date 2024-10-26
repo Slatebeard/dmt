@@ -1,9 +1,12 @@
+import slatebeard.util.Art;
+import slatebeard.util.QOL;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-
 public class CreatureCreator {
     private Scanner sc = new Scanner(System.in);
+    private ArrayList<String> sumList = new ArrayList<>();
 
     public CreatureCreator() {
         runMenu();
@@ -15,7 +18,7 @@ public class CreatureCreator {
         // Flags
         boolean running = true;
 
-
+        // Logic
         while (running) {
             QOL.clearConsole();
             Art.logo();
@@ -45,25 +48,26 @@ public class CreatureCreator {
         // Variables
         String name = "";
 
-
         // Flags
         boolean creating = true;
-
 
         QOL.clearConsole();
         Art.logo();
 
+        // Logic
         while (creating) {
 
 
             // Name
             do {
-                System.out.print("Enter the name of the creature: " + Art.placer);
+                System.out.print("Enter the name of the creature: ");
+                Art.placer();
                 name = sc.next();
             } while (name.length() < 1);
 
+            sumBuild(name);
             QOL.menuRefresh();
-            System.out.println("Name: " + QOL.makeTextGreen(name));
+            printSummary();
             QOL.setLine(1);
 
             // Type
@@ -78,6 +82,10 @@ public class CreatureCreator {
             int typeChoice = sc.nextInt();
             Creature.type creatureType = Creature.type.values()[typeChoice - 1];
 
+            sumBuild(creatureType);
+            QOL.menuRefresh();
+            printSummary();
+            QOL.setLine(1);
 
             // Alignment
             i = 1;
@@ -91,6 +99,11 @@ public class CreatureCreator {
             int alignmentChoice = sc.nextInt();
             Creature.allignment creatureAlignment = Creature.allignment.values()[alignmentChoice - 1];
 
+            sumBuild(creatureAlignment);
+            QOL.menuRefresh();
+            printSummary();
+            QOL.setLine(1);
+
             // Size
             i = 1;
             for (Creature.size size : Creature.size.values()) {
@@ -102,6 +115,11 @@ public class CreatureCreator {
             Art.placer();
             int sizeChoice = sc.nextInt();
             Creature.size creatureSize = Creature.size.values()[sizeChoice - 1];
+
+            sumBuild(creatureSize);
+            QOL.menuRefresh();
+            printSummary();
+            QOL.setLine(1);
 
             // Category
             i = 1;
@@ -115,29 +133,55 @@ public class CreatureCreator {
             int categoryChoice = sc.nextInt();
             Creature.creatureType creatureCategory = Creature.creatureType.values()[categoryChoice - 1];
 
+            sumBuild(creatureCategory);
+            QOL.menuRefresh();
+            printSummary();
+            QOL.setLine(1);
 
             // Level
             System.out.print("Enter the level of the creature: ");
             Art.placer();
             int level = sc.nextInt();
 
+            sumBuild(level);
             QOL.menuRefresh();
-
-            System.out.println("Name: " + QOL.makeTextGreen(name));
-            System.out.println("Type: " + QOL.makeTextGreen(creatureType.toString()));
-            System.out.println("Alignment: " + QOL.makeTextGreen(creatureAlignment.toString()));
-            System.out.println("Size: " + QOL.makeTextGreen(creatureSize.toString()));
-            System.out.println("Category: " + QOL.makeTextGreen(creatureCategory.toString()));
-            System.out.println("Level: " + QOL.makeTextGreen(Integer.toString(level)));
+            printSummary();
             QOL.setLine(1);
 
+            // Confirmation
             System.out.println("Is this information correct? (Y/N)");
             Art.placer();
             String correct = sc.next();
             if (correct.equalsIgnoreCase("y")) {
-                new creature.Type.toString(name, creatureType, creatureAlignment, creatureSize, creatureCategory, level, 0, 0, 0);
                 creating = false;
             }
+        }
+
+
+        System.out.println("Final Creature Summary:");
+        for (String entry : sumList) {
+            System.out.println("- " + entry);
+        }
+    }
+
+
+    private void sumBuild(String entry) {
+        sumList.add(entry);
+    }
+
+    private void sumBuild(Enum<?> entry) {
+        sumList.add(entry.toString());
+    }
+
+    private void sumBuild(int entry) {
+        sumList.add(String.valueOf(entry));
+    }
+
+
+    private void printSummary() {
+        System.out.println("Current Summary:");
+        for (String item : sumList) {
+            System.out.println("- " + item);
         }
     }
 }

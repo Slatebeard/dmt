@@ -1,5 +1,8 @@
+import slatebeard.util.Art;
+import slatebeard.util.QOL;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Random;
 
 
 public class Main {
@@ -7,6 +10,7 @@ public class Main {
 
         // Objects
         Scanner sc = new Scanner(System.in);
+
 
         // Flags
         boolean running = true;
@@ -18,6 +22,9 @@ public class Main {
             Art.logo();
             Art.startMenu();
             Art.placer();
+
+
+
 
             try {
                 int userChoice = sc.nextInt();
@@ -39,7 +46,7 @@ public class Main {
                         break;
                     case 7:
                         QOL.clearConsole();
-                        System.out.println("Journey Before Destination...");
+                        randomWORqoute();
                         running = false;
                         break;
                     default:
@@ -50,6 +57,23 @@ public class Main {
                 Art.backToMenu();
                 sc.next();
             }
+        }
+    }
+
+    private static void randomWORqoute() {
+        Random random = new Random();
+        String life = "Life Before Death...";
+        String strenght = "Strenght Before Weakness...";
+        String destination = "Journey Before Destination...";
+
+        int dice = random.nextInt(0,4);
+
+        if (dice == 1) {
+            System.out.println(life);
+        } else if (dice == 2) {
+            System.out.println(strenght);
+        } else if (dice == 3) {
+            System.out.println(destination);
         }
     }
 }

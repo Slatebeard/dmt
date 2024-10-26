@@ -1,3 +1,6 @@
+import slatebeard.util.Art;
+import slatebeard.util.QOL;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,6 +34,9 @@ public class NameGenerator {
                     break;
                 case 2:
                     chosenLang = "Amaril";
+                    break;
+                case 4:
+                    running = false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please select again.");

@@ -1,3 +1,6 @@
+import slatebeard.util.Art;
+import slatebeard.util.QOL;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,19 +22,19 @@ public class DiceRoller {
 
         while (running) {
             QOL.clearConsole();
-            System.out.print(Art.logo);
-            System.out.println(Art.diceMenu);
+            Art.logo();
+            Art.diceMenu();
 
             System.out.print(Art.placer);
             int diceAmount = sc.nextInt();
 
             System.out.println("d");
-            System.out.print(Art.placer);
+            Art.placer();
             int diceType = sc.nextInt();
             sc.nextLine();
 
             QOL.clearConsole();
-            System.out.print(Art.logo);
+            Art.logo();
 
             int total = 0;
 
@@ -118,19 +121,26 @@ public class DiceRoller {
                 }
             }
 
+
+            Art.spacer();
             System.out.println(diceBank);
-            System.out.println("\nTotal: " + total);
+            System.out.println("Total: " + total);
             System.out.println("Average: " + (total / diceAmount));
+            QOL.setLine(1);
             System.out.println("As Above: " + aboveAverage.length);
             System.out.println("So Below: " + belowAverage.length);
-
-
-            System.out.println();
-            //TODO does not work?
             System.out.println("Amount of dice at average " + diceType + ": " + (aboveCount - belowCount));
+
+            QOL.setLine(1);
+
+            Art.spacer();
+
+            QOL.setLine(1);
+
+            //TODO does not work?
             diceBank.clear();
 
-            System.out.println("\nPress Enter to return to the main menu or press 1 to roll some more...");
+            System.out.print("\nPress Enter to return to the main menu or press 1 to roll some more...");
 
 
             if (sc.nextLine().equals("1")) {

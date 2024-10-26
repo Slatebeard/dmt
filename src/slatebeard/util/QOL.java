@@ -1,3 +1,9 @@
+package slatebeard.util;
+
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
+
 public class QOL {
 
     public static void clearConsole() {
@@ -40,6 +46,22 @@ public class QOL {
             System.out.println();
         }
         return line;
+    }
+
+    public static String centerText(String text, int width) {
+        String[] lines = text.split("\n");
+        StringBuilder centeredText = new StringBuilder();
+
+        for (String line : lines) {
+            int padding = (width - line.length()) / 2;
+            if (padding > 0) {
+                centeredText.append(" ".repeat(padding)).append(line).append("\n");
+            } else {
+                centeredText.append(line).append("\n");
+            }
+        }
+        String output = centeredText.toString();
+        return output;
     }
 
     public static void menuRefresh() {

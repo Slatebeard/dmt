@@ -1,3 +1,6 @@
+import slatebeard.util.Art;
+import slatebeard.util.QOL;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
