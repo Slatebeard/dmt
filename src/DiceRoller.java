@@ -109,26 +109,39 @@ public class DiceRoller {
             aboveAverage = Arrays.copyOf(aboveAverage, aboveCount);
             belowAverage = Arrays.copyOf(belowAverage, belowCount);
 
-            for (int i = 0; i < diceBank.size(); i++) {
-                int value = Integer.parseInt(diceBank.get(i));
-
-                if (value == 1) {
-
-                    diceBank.set(i, QOL.makeRed(Integer.parseInt(diceBank.get(i))));
-                } else if (value == diceValue) {
-
-                    diceBank.set(i, QOL.makeGreen(Integer.parseInt(diceBank.get(i))));
-                }
-            }
+//            for (int i = 0; i < diceBank.size(); i++) {
+//                int value = Integer.parseInt(diceBank.get(i));
+//
+//                if (value == 1) {
+//
+//                    diceBank.set(i, QOL.makeRed(Integer.parseInt(diceBank.get(i))));
+//                } else if (value == diceValue) {
+//
+//                    diceBank.set(i, QOL.makeGreen(Integer.parseInt(diceBank.get(i))));
+//                }
+//            }
 
 
             Art.spacer();
-            System.out.println(diceBank);
-            System.out.println("Total: " + total);
-            System.out.println("Average: " + (total / diceAmount));
             QOL.setLine(1);
+
+            QOL.setDraw(32);
+            diceBankOut();
+
+            QOL.setLine(1);
+
+            QOL.setDraw(31);
+            System.out.println("Total: " + total);
+            QOL.setDraw(31);
+            System.out.println("Average: " + (total / diceAmount));
+            QOL.setDraw(31);
+            QOL.setLine(1);
+            QOL.setDraw(31);
             System.out.println("As Above: " + aboveAverage.length);
+            QOL.setDraw(31);
             System.out.println("So Below: " + belowAverage.length);
+            QOL.setLine(1);
+            QOL.setDraw(31);
             System.out.println("Amount of dice at average " + diceType + ": " + (aboveCount - belowCount));
 
             QOL.setLine(1);
@@ -137,7 +150,6 @@ public class DiceRoller {
 
             QOL.setLine(1);
 
-            //TODO does not work?
             diceBank.clear();
 
             System.out.print("\nPress Enter to return to the main menu or press 1 to roll some more...");
@@ -149,6 +161,30 @@ public class DiceRoller {
                 running = false;
 
 
+        }
+    }
+
+    public void diceBankOut() {
+        int out = 0;
+
+        for (int i = 0; i < diceBank.size(); i++) {
+            if (diceBank.get(i).length() == 2) {
+                System.out.print(String.format("| %2s ", diceBank.get(i)));
+                out++;
+            } else if (diceBank.get(i).equals("1")) {
+                System.out.print(String.format("|  %2s ", diceBank.get(i)));
+                out++;
+            } else {
+                System.out.print(String.format("|  %2s ", diceBank.get(i)));
+                out++;
+            }
+
+            if (out == 4) {
+                System.out.print("|");
+                System.out.println();
+                QOL.setDraw(32);
+                out = 0;
+            }
         }
     }
 }
