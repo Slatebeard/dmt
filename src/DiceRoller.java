@@ -169,17 +169,20 @@ public class DiceRoller {
 
         for (int i = 0; i < diceBank.size(); i++) {
             if (diceBank.get(i).length() == 2) {
-                System.out.print(String.format("| %2s ", diceBank.get(i)));
+//                System.out.print(String.format("| %2s ", diceBank.get(i)));
+                System.out.print("| " + diceBank.get(i) + " ");
                 out++;
             } else if (diceBank.get(i).equals("1")) {
-                System.out.print(String.format("|  %2s ", diceBank.get(i)));
+//                System.out.print(String.format("|  %2s ", QOL.makeTextRed(diceBank.get(i))));
+                System.out.print("|  " + QOL.makeTextRed(diceBank.get(i)) + " ");
                 out++;
             } else {
-                System.out.print(String.format("|  %2s ", diceBank.get(i)));
+//                System.out.print(String.format("|  %2s ", diceBank.get(i)));
+                System.out.print("|  " + diceBank.get(i) + " ");
                 out++;
             }
 
-            if (out == 4) {
+            if (out == 6) {
                 System.out.print("|");
                 System.out.println();
                 QOL.setDraw(32);
