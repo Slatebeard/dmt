@@ -126,9 +126,8 @@ public class DiceRoller {
             QOL.setLine(1);
 
             QOL.setDraw(32);
-            diceBankOut();
-
-            QOL.setLine(1);
+            diceBankOut(diceType);
+            QOL.setLine(2);
 
             QOL.setDraw(31);
             System.out.println("Total: " + total);
@@ -164,25 +163,38 @@ public class DiceRoller {
         }
     }
 
-    public void diceBankOut() {
+    public void diceBankOut(int diceType) {
         int out = 0;
 
         for (int i = 0; i < diceBank.size(); i++) {
-            if (diceBank.get(i).length() == 2) {
-//                System.out.print(String.format("| %2s ", diceBank.get(i)));
-                System.out.print("| " + diceBank.get(i) + " ");
-                out++;
+            String pady;
+            String formatDBindex = diceBank.get(i);
+
+            if (Integer.parseInt(diceBank.get(i)) == diceType) {
+                if (diceBank.get(i).length() > 2) {
+                    pady = "";
+                    formatDBindex = QOL.makeTextGreen(diceBank.get(i));
+                } else if (diceBank.get(i).length() > 1) {
+                    pady = " ";
+                    formatDBindex = QOL.makeTextGreen(diceBank.get(i));
+                } else {
+                    pady = "  ";
+                    formatDBindex = QOL.makeTextGreen(diceBank.get(i));
+                }
+
+            } else if (diceBank.get(i).length() == 2) {
+                pady = " ";
             } else if (diceBank.get(i).equals("1")) {
-//                System.out.print(String.format("|  %2s ", QOL.makeTextRed(diceBank.get(i))));
-                System.out.print("|  " + QOL.makeTextRed(diceBank.get(i)) + " ");
-                out++;
+                pady = "  ";
+                formatDBindex = QOL.makeTextRed(diceBank.get(i));
             } else {
-//                System.out.print(String.format("|  %2s ", diceBank.get(i)));
-                System.out.print("|  " + diceBank.get(i) + " ");
-                out++;
+                pady = "  ";
             }
 
-            if (out == 6) {
+            System.out.print("| " + pady + formatDBindex + " ");
+            out++;
+
+            if (out == 5) {
                 System.out.print("|");
                 System.out.println();
                 QOL.setDraw(32);
