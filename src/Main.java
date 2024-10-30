@@ -64,7 +64,7 @@ public class Main {
         String strenght = "Strenght Before Weakness...";
         String destination = "Journey Before Destination...";
 
-        int dice = random.nextInt(0,4);
+        int dice = random.nextInt(1,4);
 
         if (dice == 1) {
             System.out.println(life);

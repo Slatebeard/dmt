@@ -1,9 +1,4 @@
 package slatebeard.util;
-
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.ArrayList;
-
 public class QOL {
 
     public static void clearConsole() {
@@ -77,5 +72,4 @@ public class QOL {
         }
         return line;
     }
-
 }

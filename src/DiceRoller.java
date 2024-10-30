@@ -1,5 +1,6 @@
 import slatebeard.util.Art;
 import slatebeard.util.QOL;
+import slatebeard.util.QIO;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -111,26 +112,32 @@ public class DiceRoller {
 
 
             Art.spacer();
+
             QOL.setLine(1);
 
             QOL.setDraw(32);
             diceBankOut(diceType);
+
             QOL.setLine(1);
 
             QOL.setDraw(31);
             System.out.println("Total: " + total);
+
             QOL.setDraw(31);
             System.out.println("Average: " + (total / diceAmount));
             QOL.setDraw(31);
 
             QOL.setLine(1);
+
             QOL.setDraw(31);
             System.out.println("As Above: " + aboveAverage.length);
             QOL.setDraw(31);
             System.out.println("So Below: " + belowAverage.length);
+
             QOL.setLine(1);
+
             QOL.setDraw(31);
-            System.out.println("Amount of dice at average " + diceType + ": " + (aboveCount - belowCount));
+            System.out.println("Amount of dice at " + diceType / 2 + ": " + (aboveCount - belowCount));
 
             QOL.setLine(1);
 
