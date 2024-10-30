@@ -7,26 +7,29 @@ import java.util.Scanner;
 public class NameGenerator {
     Random rand = new Random();
     Scanner sc = new Scanner(System.in);
-
     String chosenLang = "";
 
     public NameGenerator() {
         runMenu();
     }
 
+    private boolean running = true;
 
     private void runMenu() {
-        boolean running = true;
+
+        boolean regenerate = false;
+
 
         while (running) {
-            // Clear the console and show the menu
+
             QOL.clearConsole();
-            System.out.print(Art.logo);;
-            System.out.println(Art.nameGenMenu1);
+            Art.logo();
+            Art.nameGenMenu1();
             System.out.print(Art.placer);
 
-            // Ask for language
+
             int userChoice = sc.nextInt();
+            sc.nextLine();
 
             switch (userChoice) {
                 case 1:
@@ -37,27 +40,46 @@ public class NameGenerator {
                     break;
                 case 4:
                     running = false;
+                    regenerate = false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please select again.");
-                    continue;
+                    break;
             }
 
-            // Ask for gender
-            QOL.clearConsole();
-            System.out.print(Art.logo);
-            System.out.println(Art.nameGenMenu2);
-            int genderChoice = sc.nextInt();
-            String gender = (genderChoice == 1) ? "Male" : "Female";
+            if (!running) {
+                break;
+            }
 
-            // Ask for amount
+            runStatus();
+
+            QOL.clearConsole();
+            Art.logo();
+            Art.nameGenMenu2();
+
+
+            String gender = "";
+            int genderChoice = sc.nextInt();
+
+            if (genderChoice == 3) {
+                running = false;
+                regenerate = false;
+            } else {
+                gender = (genderChoice == 1) ? "Male" : "Female";
+            }
+
+            if (!running) {
+                break;
+            }
+
+
             QOL.clearConsole();
             System.out.print(Art.logo);
             System.out.println(Art.amount);
             int amount = sc.nextInt();
             System.out.print("\n");
 
-            boolean regenerate = true;
+
 
             while (regenerate) {
 
@@ -88,18 +110,24 @@ public class NameGenerator {
                         break;
                     default:
                         System.out.println("Invalid choice. Please select again.");
-                        regenerate = true;  // Keep the regenerate loop running
+                        regenerate = true;
                 }
             }
         }
     }
 
+    private void runStatus() {
+        if (!running) {
+            running = false;
+        }
+    }
 
-    // Method to build names based on chosen language, gender, and amount
+
     private void nameBuilder(String language, String gender, int amount) {
         for (int i = 0; i < amount; i++) {
             String randFname1, randFname2, randLname1, randLname2;
 
+               // Veldrasar
             if (language.equals("Veldrasar")) {
                 if (gender.equals("Male")) {
                     randFname1 = NameBank.veldraMaleP1Fir.get(rand.nextInt(NameBank.veldraMaleP1Fir.size()));
@@ -110,6 +138,8 @@ public class NameGenerator {
                 }
                 randLname1 = NameBank.veldraLast1.get(rand.nextInt(NameBank.veldraLast1.size()));
                 randLname2 = NameBank.veldraLast2.get(rand.nextInt(NameBank.veldraLast2.size()));
+
+                // Amaril
             } else if (language.equals("Amaril")) {
                 if (gender.equals("Male")) {
                     randFname1 = NameBank.amarilMaleP1Fir.get(rand.nextInt(NameBank.amarilMaleP1Fir.size()));
@@ -124,8 +154,6 @@ public class NameGenerator {
                 System.out.println("Unknown language: " + language);
                 return;
             }
-
-
             System.out.println((i + 1) + ". " + randFname1 + randFname2 + " " + randLname1 + randLname2);
         }
     }

@@ -95,7 +95,7 @@ public class DiceRoller {
             int aboveCount = 0;
             int belowCount = 0;
 
-            // Average % Calculator
+
             for (int i = 0; i < diceBank.size(); i++) {
                 double value = Double.parseDouble(diceBank.get(i));
 
@@ -109,31 +109,20 @@ public class DiceRoller {
             aboveAverage = Arrays.copyOf(aboveAverage, aboveCount);
             belowAverage = Arrays.copyOf(belowAverage, belowCount);
 
-//            for (int i = 0; i < diceBank.size(); i++) {
-//                int value = Integer.parseInt(diceBank.get(i));
-//
-//                if (value == 1) {
-//
-//                    diceBank.set(i, QOL.makeRed(Integer.parseInt(diceBank.get(i))));
-//                } else if (value == diceValue) {
-//
-//                    diceBank.set(i, QOL.makeGreen(Integer.parseInt(diceBank.get(i))));
-//                }
-//            }
-
 
             Art.spacer();
             QOL.setLine(1);
 
             QOL.setDraw(32);
             diceBankOut(diceType);
-            QOL.setLine(2);
+            QOL.setLine(1);
 
             QOL.setDraw(31);
             System.out.println("Total: " + total);
             QOL.setDraw(31);
             System.out.println("Average: " + (total / diceAmount));
             QOL.setDraw(31);
+
             QOL.setLine(1);
             QOL.setDraw(31);
             System.out.println("As Above: " + aboveAverage.length);
@@ -147,11 +136,11 @@ public class DiceRoller {
 
             Art.spacer();
 
-            QOL.setLine(1);
-
             diceBank.clear();
 
-            System.out.print("\nPress Enter to return to the main menu or press 1 to roll some more...");
+            QOL.setLine(2);
+            QOL.setDraw(15);
+            System.out.print("Press Enter to return to the main menu or press 1 to roll some more...");
 
 
             if (sc.nextLine().equals("1")) {

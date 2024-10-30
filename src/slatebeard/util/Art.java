@@ -28,24 +28,26 @@ public class Art {
     public static String startMenu2 = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n|      1.Name Generator           |\n!      2.Weather Generator        !\n|      3.Dice Roller              |\n!      4.Creature Creator         !\n|      5.Touch Of Inspiration     |\n!      6.**UNDER CONSTRUCTION**   !\n|      7.Exit                     |\n+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
     public static String startMenu3 = "      1.Name Generator           \n      2.Weather Generator        \n      3.Dice Roller              \n      4.Creature Creator         \n      5.Touch Of Inspiration     \n      6.**UNDER CONSTRUCTION**   \n      7.Exit                     \n";
 
-    public static String nameGenMenu1 = """
-                                                                     Choose A Language.
-                                                           +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
-                                                           |      1.Veldrasi                 |
-                                                           !      2.Amaril                   !
-                                                           |      3.Drudain                  |
-                                                           !      4.Return                   |
-                                                           +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
-            """;
-    public static String nameGenMenu2 = """
-                                                                     Choose A Gender.
-                                                           +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
-                                                           |      1.Male                     |
-                                                           !      2.Female                   !
-                                                           |                                 |
-                                                           !      3.Return                   !
-                                                           +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
-            """;
+    private static String nameGenMenu1 = "  Choose A Language.\n" +
+            "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
+            "|      1.Veldrasi                 |\n" +
+            "!      2.Amaril                   !\n" +
+            "|      3.Drudain                  |\n" +
+            "!                                 !\n" +
+            "|                                 |\n" +
+            "!      4.Return                   !\n" +
+            "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
+
+    private static String nameGenMenu2 = "  Choose A Gender.\n" +
+            "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
+            "|      1.Male                     |\n" +
+            "!      2.Female                   !\n" +
+            "|                                 |\n" +
+            "!                                 !\n" +
+            "|                                 |\n" +
+            "!      3.Return                   !\n" +
+            "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
+
     public static String amount = """
                                                                Choose amount.
             """;
@@ -75,6 +77,11 @@ public class Art {
 
     private static String spacer = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
     private static String bigSpacer = "+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+";
+
+    private static String diceBoxCover = "__________________________";
+
+
+
 
     public static String creatureCreatorMenu = """
                                                         +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-+
@@ -126,12 +133,16 @@ public class Art {
         System.out.print(text);
     }
 
+    public static void setDiceBoxCover() {
+        System.out.print(diceBoxCover);
+    }
+
     public static void nameGenMenu1() {
-        System.out.print(nameGenMenu1);
+        System.out.print(QOL.centerText(nameGenMenu1,96));
     }
 
     public static void nameGenMenu2() {
-        System.out.print(nameGenMenu2);
+        System.out.print(QOL.centerText(nameGenMenu2,96));
     }
 
     public static void amount() {

@@ -23,9 +23,6 @@ public class Main {
             Art.startMenu();
             Art.placer();
 
-
-
-
             try {
                 int userChoice = sc.nextInt();
                 switch (userChoice) {
@@ -62,6 +59,7 @@ public class Main {
 
     private static void randomWORqoute() {
         Random random = new Random();
+
         String life = "Life Before Death...";
         String strenght = "Strenght Before Weakness...";
         String destination = "Journey Before Destination...";
