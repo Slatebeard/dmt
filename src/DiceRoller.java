@@ -26,7 +26,7 @@ public class DiceRoller {
             Art.logo();
             Art.diceMenu();
 
-            System.out.print(Art.placer);
+            Art.placer();
             int diceAmount = sc.nextInt();
 
             System.out.println("d");

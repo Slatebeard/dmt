@@ -2,7 +2,7 @@ package slatebeard.util;
 
 public class Art {
 
-    public static String logo = """
+    private static String logo = """
                   ___                                                       _            _      _____            _ _              \s
                  /   \\_   _ _ __   __ _  ___  ___  _ __     /\\/\\   __ _ ___| |_ ___ _ __( )__  /__   \\___   ___ | | |__   _____  __
                 / /\\ / | | | '_ \\ / _` |/ _ \\/ _ \\| '_ \\   /    \\ / _` / __| __/ _ \\ '__|/ __|   / /\\/ _ \\ / _ \\| | '_ \\ / _ \\ \\/ /
@@ -11,22 +11,17 @@ public class Art {
             \s
             """;
 
-    public static String logo2 = "___                                                       _            _      _____            _ _              \n/   \\_   _ _ __   __ _  ___  ___  _ __     /\\/\\   __ _ ___| |_ ___ _ __( )__  /__   \\___   ___ | | |__   _____  __\n/ /\\ / | | | '_ \\ / _` |/ _ \\/ _ \\| '_ \\   /    \\ / _` / __| __/ _ \\ '__|/ __|   / /\\/ _ \\ / _ \\| | '_ \\ / _ \\ \\/ /\n/ /_//| |_| | | | | (_| |  __/ (_) | | | | / /\\/\\ \\ (_| \\__ \\ ||  __/ |   \\__ \\  / / | (_) | (_) | | |_) | (_) >  <\n/___,'  \\__,_|_| |_|\\__, |\\___|\\___/|_| |_| \\/    \\/\\__,_|___/\\__\\___|_|   |___/  \\/   \\___/ \\___/|_|_.__/ \\___/_/\\_\\";
     private static String logo3 = "dmt\n" + " ";
-    public static String startMenu = """
-                                                          +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
-                                                          |      1.Name Generator           |
-                                                          !      2.Weather Generator        !
-                                                          |      3.Dice Roller              |
-                                                          !      4.Creature Creator         !
-                                                          |      5.Touch Of Inspiration     |
-                                                          !      6.**UNDER CONSTRUCTION**   !
-                                                          |      7.Exit                     |
-                                                          +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+
-            """;
 
-    public static String startMenu2 = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n|      1.Name Generator           |\n!      2.Weather Generator        !\n|      3.Dice Roller              |\n!      4.Creature Creator         !\n|      5.Touch Of Inspiration     |\n!      6.**UNDER CONSTRUCTION**   !\n|      7.Exit                     |\n+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
-    public static String startMenu3 = "      1.Name Generator           \n      2.Weather Generator        \n      3.Dice Roller              \n      4.Creature Creator         \n      5.Touch Of Inspiration     \n      6.**UNDER CONSTRUCTION**   \n      7.Exit                     \n";
+    private static String startMenu = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
+            "|      1.Name Generator           |\n" +
+            "!      2.Weather Generator        !\n" +
+            "|      3.Dice Roller              |\n" +
+            "!      4.Creature Creator         !\n" +
+            "|      5.Touch Of Inspiration     |\n" +
+            "!      6.**UNDER CONSTRUCTION**   !\n" +
+            "|      0.Exit                     |\n" +
+            "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
     private static String nameGenMenu1 = "  Choose A Language.\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
@@ -35,7 +30,7 @@ public class Art {
             "|      3.Drudain                  |\n" +
             "!                                 !\n" +
             "|                                 |\n" +
-            "!      4.Return                   !\n" +
+            "!      0.Return                   !\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
     private static String nameGenMenu2 = "  Choose A Gender.\n" +
@@ -45,12 +40,12 @@ public class Art {
             "|                                 |\n" +
             "!                                 !\n" +
             "|                                 |\n" +
-            "!      3.Return                   !\n" +
+            "!      0.Return                   !\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
-    public static String amount = """
-                                                               Choose amount.
-            """;
+    private static String amount = "Choose amount.";
+
+
     public static String diceMenu = """
                                                         Enter Amount <ENTER> Enter Dice Type
                                            +~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~+
@@ -93,7 +88,7 @@ public class Art {
     public static String creatureCreatorMenu2 = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n|       1.Create Creature         |\n!       2.Return                  !\n+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
 
-    public static String placer = ">";
+    private static String placer = ">";
     private static String backToMenu = "Press Enter to return to the main menu...";
     public static String map = """ 
             +~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+
@@ -118,6 +113,13 @@ public class Art {
             """;
 
 
+
+    // TERMINAL SIZE
+
+
+
+
+
     // Methods
     public static void backToMenu() {
         System.out.print(backToMenu);
@@ -129,7 +131,7 @@ public class Art {
     }
 
     public static void startMenu() {
-        String text = QOL.centerText(startMenu2, 96);
+        String text = QOL.centerText(startMenu, 96);
         System.out.print(text);
     }
 
@@ -146,7 +148,7 @@ public class Art {
     }
 
     public static void amount() {
-        System.out.print(amount);
+        System.out.print(QOL.centerText(amount,96));
     }
 
     public static void diceMenu() {

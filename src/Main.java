@@ -41,7 +41,7 @@ public class Main {
                         HookGenerator hookGenerator = new HookGenerator("/home/slatebeard/java/dmt/data/hook.txt");
                         hookGenerator.runMenu();
                         break;
-                    case 7:
+                    case 0:
                         QOL.clearConsole();
                         randomWORqoute();
                         running = false;

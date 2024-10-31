@@ -17,7 +17,7 @@ public class NameGenerator {
 
     private void runMenu() {
 
-        boolean regenerate = false;
+        boolean reGenerate = false;
 
 
         while (running) {
@@ -25,22 +25,25 @@ public class NameGenerator {
             QOL.clearConsole();
             Art.logo();
             Art.nameGenMenu1();
-            System.out.print(Art.placer);
+            Art.placer();
 
 
             int userChoice = sc.nextInt();
+
             sc.nextLine();
 
             switch (userChoice) {
                 case 1:
                     chosenLang = "Veldrasar";
+                    reGenerate = true;
                     break;
                 case 2:
                     chosenLang = "Amaril";
+                    reGenerate = true;
                     break;
-                case 4:
+                case 0:
                     running = false;
-                    regenerate = false;
+                    reGenerate = false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please select again.");
@@ -50,7 +53,6 @@ public class NameGenerator {
             if (!running) {
                 break;
             }
-
             runStatus();
 
             QOL.clearConsole();
@@ -59,11 +61,12 @@ public class NameGenerator {
 
 
             String gender = "";
+
             int genderChoice = sc.nextInt();
 
-            if (genderChoice == 3) {
+            if (genderChoice == 0) {
                 running = false;
-                regenerate = false;
+                reGenerate = false;
             } else {
                 gender = (genderChoice == 1) ? "Male" : "Female";
             }
@@ -74,43 +77,58 @@ public class NameGenerator {
 
 
             QOL.clearConsole();
-            System.out.print(Art.logo);
-            System.out.println(Art.amount);
+            Art.logo();
+
+            Art.spacer();
+            QOL.setLine(3);
+            Art.amount();
+            QOL.setLine(3);
+            Art.spacer();
+            Art.placer();
+
+
             int amount = sc.nextInt();
-            System.out.print("\n");
+
+
+            QOL.clearConsole();
+            Art.logo();
+
+            Art.spacer();
+            QOL.setLine(1);
+
+            QOL.setDraw(20);
+            nameBuilder(chosenLang, gender, amount);
+
+            QOL.setLine(2);
+            Art.spacer();
+
+            QOL.setLine(5);
+            QOL.centerText("0. Exit",96);
 
 
 
-            while (regenerate) {
-
-                nameBuilder(chosenLang, gender, amount);
-
-                System.out.println("\nWhat would you like to do next?");
-                System.out.println("1. Re-generate names");
-                System.out.println("2. Generate new names (change language, gender, or amount)");
-                System.out.println("3. Exit");
-
+            while (reGenerate) {
                 int nextAction = sc.nextInt();
                 sc.nextLine();
 
                 switch (nextAction) {
                     case 1:
-                        regenerate = true;
+                        reGenerate = true;
                         QOL.clearConsole();
-                        System.out.print(Art.logo);
+                        Art.logo();
                         break;
                     case 2:
-                        regenerate = false;
+                        reGenerate = false;
                         QOL.clearConsole();
-                        System.out.print(Art.logo);
+                        Art.logo();
                         break;
-                    case 3:
-                        regenerate = false;
+                    case 0:
+                        reGenerate = false;
                         running = false;
                         break;
                     default:
                         System.out.println("Invalid choice. Please select again.");
-                        regenerate = true;
+                        reGenerate = true;
                 }
             }
         }
@@ -124,6 +142,9 @@ public class NameGenerator {
 
 
     private void nameBuilder(String language, String gender, int amount) {
+        int row = 3;
+        int counter = 0;
+
         for (int i = 0; i < amount; i++) {
             String randFname1, randFname2, randLname1, randLname2;
 
@@ -154,7 +175,15 @@ public class NameGenerator {
                 System.out.println("Unknown language: " + language);
                 return;
             }
-            System.out.println((i + 1) + ". " + randFname1 + randFname2 + " " + randLname1 + randLname2);
+
+            if (counter < row) {
+                System.out.print("| " + randFname1 + randFname2 + " " + randLname1 + randLname2 + " |" + " ");
+                counter++;
+            } else {
+                System.out.println();
+                QOL.setDraw(20);
+                counter = 0;
+            }
         }
     }
 }
