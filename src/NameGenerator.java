@@ -177,8 +177,11 @@ public class NameGenerator {
             }
 
             if (counter < row) {
-                System.out.print("| " + randFname1 + randFname2 + " " + randLname1 + randLname2 + " |" + " ");
+                String name = randFname1 + randFname2 + " " + randLname1 + randLname2;
+                System.out.print(name);
+                QOL.setDraw(2);
                 counter++;
+
             } else {
                 System.out.println();
                 QOL.setDraw(20);

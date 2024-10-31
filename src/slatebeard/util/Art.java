@@ -11,7 +11,7 @@ public class Art {
             \s
             """;
 
-    private static String logo3 = "dmt\n" + " ";
+    private static String logo3 = "dmt";
 
     private static String startMenu = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
             "|      1.Name Generator           |\n" +
@@ -126,8 +126,8 @@ public class Art {
     }
 
     public static void logo() {
-        String text = QOL.centerText(logo3, 96);
-        System.out.print(text);
+        QOL.setDraw(46);
+        System.out.println(QOL.makeBold(logo3));
     }
 
     public static void startMenu() {

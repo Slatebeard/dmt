@@ -13,6 +13,9 @@ public class QOL {
             e.printStackTrace();
         }
     }
+
+    // COLORS
+        //Ints
     public static String makeRed (int number) {
         String RED = "\033[0;31m";
         String RESET = "\033[0m";
@@ -24,6 +27,7 @@ public class QOL {
         String RESET = "\033[0m";
         return GREEN + number + RESET;
     }
+        // Strings
     public static String makeTextRed (String text) {
         String RED = "\033[0;31m";
         String RESET = "\033[0m";
@@ -36,6 +40,26 @@ public class QOL {
         String RESET = "\033[0m";
         return GREEN + text + RESET;
     }
+
+    public static String makeBold(String text) {
+        String BOLD = "\u001B[1m";
+        String RESET = "\033[0m";
+        return BOLD + text + RESET;
+    }
+
+
+
+    public static String debugStringLength(String text) {
+        int amountChars = text.length();
+        String fastStringConvert = amountChars + "";
+        return fastStringConvert;
+    }
+
+
+
+
+
+
     public static String setLine (int amount) {
         String line = "";
         for (int i = 0; i < amount; i++) {

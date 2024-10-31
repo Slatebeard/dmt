@@ -18,7 +18,6 @@ public class Main {
 
         while (running) {
             QOL.clearConsole();
-
             Art.logo();
             Art.startMenu();
             Art.placer();
@@ -44,6 +43,7 @@ public class Main {
                     case 0:
                         QOL.clearConsole();
                         randomWORqoute();
+                        QOL.setLine(3);
                         running = false;
                         break;
                     default:
