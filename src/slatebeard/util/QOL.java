@@ -96,4 +96,8 @@ public class QOL {
         }
         return line;
     }
+
+    public static void debug() {
+        System.out.print("*DEBUG*");
+    }
 }

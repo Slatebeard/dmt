@@ -89,7 +89,7 @@ public class Art {
 
 
     private static String placer = ">";
-    private static String backToMenu = "Press Enter to return to the main menu...";
+    private static String backToMenu = "Press ENTER to return to the main menu...";
     public static String map = """ 
             +~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+
             |                                                                                                                                        |
@@ -122,7 +122,7 @@ public class Art {
 
     // Methods
     public static void backToMenu() {
-        System.out.print(backToMenu);
+        System.out.print(QOL.centerText(backToMenu,96));
     }
 
     public static void logo() {

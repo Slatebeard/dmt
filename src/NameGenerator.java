@@ -1,4 +1,5 @@
 import slatebeard.util.Art;
+import slatebeard.util.QIO;
 import slatebeard.util.QOL;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class NameGenerator {
     Random rand = new Random();
     Scanner sc = new Scanner(System.in);
+    QIO qio = new QIO();
     String chosenLang = "";
 
     public NameGenerator() {
@@ -16,13 +18,9 @@ public class NameGenerator {
 
     private boolean running = true;
 
-    private ArrayList<String> nameBank = new ArrayList<>();
+    private final ArrayList<String> nameBank = new ArrayList<>();
 
     private void runMenu() {
-
-        boolean reGenerate = false;
-
-
         while (running) {
 
             QOL.clearConsole();
@@ -38,15 +36,12 @@ public class NameGenerator {
             switch (userChoice) {
                 case 1:
                     chosenLang = "Veldrasar";
-                    reGenerate = true;
                     break;
                 case 2:
                     chosenLang = "Amaril";
-                    reGenerate = true;
                     break;
                 case 0:
                     running = false;
-                    reGenerate = false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please select again.");
@@ -69,7 +64,6 @@ public class NameGenerator {
 
             if (genderChoice == 0) {
                 running = false;
-                reGenerate = false;
             } else {
                 gender = (genderChoice == 1) ? "Male" : "Female";
             }
@@ -106,33 +100,13 @@ public class NameGenerator {
             Art.spacer();
 
             QOL.setLine(5);
-            QOL.centerText("0. Exit",96);
 
+            Art.backToMenu();
 
+            String nextChoice = qio.readString();
 
-            while (reGenerate) {
-                int nextAction = sc.nextInt();
-                sc.nextLine();
-
-                switch (nextAction) {
-                    case 1:
-                        reGenerate = true;
-                        QOL.clearConsole();
-                        Art.logo();
-                        break;
-                    case 2:
-                        reGenerate = false;
-                        QOL.clearConsole();
-                        Art.logo();
-                        break;
-                    case 0:
-                        reGenerate = false;
-                        running = false;
-                        break;
-                    default:
-                        System.out.println("Invalid choice. Please select again.");
-                        reGenerate = true;
-                }
+            if (nextChoice.isEmpty()) {
+                running = false;
             }
         }
     }
@@ -184,7 +158,6 @@ public class NameGenerator {
             nameBank.add(name);
 
         }
-
         printNameInRows(nameBank,3);
     }
 

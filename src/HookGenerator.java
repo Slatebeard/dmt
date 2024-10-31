@@ -1,6 +1,5 @@
 import slatebeard.util.Art;
 import slatebeard.util.QOL;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -71,8 +70,6 @@ public class HookGenerator {
                     break;
                 }
 
-
-
                 int j = 0;
 
                 for (int i = 0; i < userChoice; i++) {
@@ -87,10 +84,12 @@ public class HookGenerator {
                     QOL.setLine(1);
                 }
                 System.out.print("\nPress Enter to return to the main menu or press 1 to get some more inspiration...");
+
                 if (sc.nextLine().equals("1")) {
                     running = true;
                 } else
                     running = false;
+
             } catch (Exception e) {
                 System.out.println("Invalid choice. Please try again.");
                 sc.next();

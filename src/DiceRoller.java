@@ -137,7 +137,8 @@ public class DiceRoller {
             QOL.setLine(1);
 
             QOL.setDraw(31);
-            System.out.println("Amount of dice at " + diceType / 2 + ": " + (aboveCount - belowCount));
+
+            System.out.print("Amount of dice at average: " + amountAtAverage(diceAmount, diceType, diceBank));
 
             QOL.setLine(1);
 
@@ -147,7 +148,7 @@ public class DiceRoller {
 
             QOL.setLine(2);
             QOL.setDraw(15);
-            System.out.print("Press Enter to return to the main menu or press 1 to roll some more...");
+            System.out.print("Press ENTER to return to the main menu or press 1 to roll some more...");
 
 
             if (sc.nextLine().equals("1")) {
@@ -157,6 +158,19 @@ public class DiceRoller {
 
 
         }
+    }
+
+    private String amountAtAverage(int diceAmount, int diceType, ArrayList<String> diceBank) {
+        ArrayList<Integer> amountAtAverage = new ArrayList<>();
+        int diceAverage = diceType / 2;
+        for (int i = 0; i < diceBank.size(); i++) {
+            int diceRollValue = Integer.parseInt(diceBank.get(i));
+            if ( diceRollValue == diceAverage) {
+                amountAtAverage.add(diceRollValue);
+            }
+        }
+        String diceAtAverage = amountAtAverage.size() + "";
+        return diceAtAverage;
     }
 
     public void diceBankOut(int diceType) {
