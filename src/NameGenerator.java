@@ -1,6 +1,7 @@
 import slatebeard.util.Art;
 import slatebeard.util.QOL;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,6 +15,8 @@ public class NameGenerator {
     }
 
     private boolean running = true;
+
+    private ArrayList<String> nameBank = new ArrayList<>();
 
     private void runMenu() {
 
@@ -176,16 +179,32 @@ public class NameGenerator {
                 return;
             }
 
-            if (counter < row) {
-                String name = randFname1 + randFname2 + " " + randLname1 + randLname2;
-                System.out.print(name);
-                QOL.setDraw(2);
-                counter++;
+            String name = randFname1 + randFname2 + " " + randLname1 + randLname2;
 
-            } else {
-                System.out.println();
+            nameBank.add(name);
+
+        }
+
+        printNameInRows(nameBank,3);
+    }
+
+    private static void printNameInRows(ArrayList<String> nameBank, int columns) {
+        int[] maxColumnWidths = new int[columns];
+
+        for (int i = 0; i < nameBank.size(); i++) {
+            int colIndex = i % columns;
+            maxColumnWidths[colIndex] = Math.max(maxColumnWidths[colIndex], nameBank.get(i).length());
+        }
+
+        for (int i = 0; i < nameBank.size(); i++) {
+            int colIndex = i % columns;
+            String name = nameBank.get(i);
+
+            System.out.print(name + " ".repeat(maxColumnWidths[colIndex] - name.length() + 2));
+
+            if ((i + 1) % columns == 0) {
+                QOL.setLine(1);
                 QOL.setDraw(20);
-                counter = 0;
             }
         }
     }
