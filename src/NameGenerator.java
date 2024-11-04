@@ -1,7 +1,6 @@
 import slatebeard.util.Art;
 import slatebeard.util.QIO;
 import slatebeard.util.QOL;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -28,7 +27,6 @@ public class NameGenerator {
             Art.nameGenMenu1();
             Art.placer();
 
-
             int userChoice = sc.nextInt();
 
             sc.nextLine();
@@ -51,7 +49,7 @@ public class NameGenerator {
             if (!running) {
                 break;
             }
-            runStatus();
+
 
             QOL.clearConsole();
             Art.logo();
@@ -68,6 +66,7 @@ public class NameGenerator {
                 gender = (genderChoice == 1) ? "Male" : "Female";
             }
 
+
             if (!running) {
                 break;
             }
@@ -83,9 +82,7 @@ public class NameGenerator {
             Art.spacer();
             Art.placer();
 
-
             int amount = sc.nextInt();
-
 
             QOL.clearConsole();
             Art.logo();
@@ -95,12 +92,9 @@ public class NameGenerator {
 
             QOL.setDraw(20);
             nameBuilder(chosenLang, gender, amount);
-
             QOL.setLine(2);
             Art.spacer();
-
             QOL.setLine(5);
-
             Art.backToMenu();
 
             String nextChoice = qio.readString();
@@ -110,13 +104,6 @@ public class NameGenerator {
             }
         }
     }
-
-    private void runStatus() {
-        if (!running) {
-            running = false;
-        }
-    }
-
 
     private void nameBuilder(String language, String gender, int amount) {
         int row = 3;
