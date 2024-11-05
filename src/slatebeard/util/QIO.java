@@ -1,5 +1,6 @@
 package slatebeard.util;
 import java.util.Scanner;
+import javax.swing.event.*;
 
 public class QIO {
 
@@ -44,4 +45,5 @@ public class QIO {
     public static void println(Object data) {
         System.out.println(data);
     }
+
 }

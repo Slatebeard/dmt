@@ -2,6 +2,7 @@ import slatebeard.util.Art;
 import slatebeard.util.QOL;
 import slatebeard.util.QIO;
 
+import javax.swing.event.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -165,7 +166,7 @@ public class DiceRoller {
         int diceAverage = diceType / 2;
         for (int i = 0; i < diceBank.size(); i++) {
             int diceRollValue = Integer.parseInt(diceBank.get(i));
-            if ( diceRollValue == diceAverage) {
+            if (diceRollValue == diceAverage) {
                 amountAtAverage.add(diceRollValue);
             }
         }

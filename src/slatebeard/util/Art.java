@@ -2,7 +2,7 @@ package slatebeard.util;
 
 public class Art {
 
-    private static String logo = """
+    private static final String logo = """
                   ___                                                       _            _      _____            _ _              \s
                  /   \\_   _ _ __   __ _  ___  ___  _ __     /\\/\\   __ _ ___| |_ ___ _ __( )__  /__   \\___   ___ | | |__   _____  __
                 / /\\ / | | | '_ \\ / _` |/ _ \\/ _ \\| '_ \\   /    \\ / _` / __| __/ _ \\ '__|/ __|   / /\\/ _ \\ / _ \\| | '_ \\ / _ \\ \\/ /
@@ -11,9 +11,9 @@ public class Art {
             \s
             """;
 
-    private static String logo3 = "dmt";
+    private static final String logo3 = "dmt";
 
-    private static String startMenu = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
+    private static final String startMenu = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
             "|      1.Name Generator           |\n" +
             "!      2.Weather Generator        !\n" +
             "|      3.Dice Roller              |\n" +
@@ -23,7 +23,7 @@ public class Art {
             "|      0.Exit                     |\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
-    private static String nameGenMenu1 = "  Choose A Language.\n" +
+    private static final String nameGenMenu1 = "  Choose A Language.\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
             "|      1.Veldrasi                 |\n" +
             "!      2.Amaril                   !\n" +
@@ -33,7 +33,7 @@ public class Art {
             "!      0.Return                   !\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
-    private static String nameGenMenu2 = "  Choose A Gender.\n" +
+    private static final String nameGenMenu2 = "  Choose A Gender.\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
             "|      1.Male                     |\n" +
             "!      2.Female                   !\n" +
@@ -43,7 +43,7 @@ public class Art {
             "!      0.Return                   !\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
-    private static String amount = "Choose amount.";
+    private static final String amount = "Choose amount.";
 
 
     public static String diceMenu = """
@@ -59,7 +59,7 @@ public class Art {
                                            +~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~+
             """;
 
-    private static String diceMenu2 = "Enter Amount <ENTER> Enter Dice Type\n" +
+    private static final String diceMenu2 = "Enter Amount <ENTER> Enter Dice Type\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
             "|      d2                d10      |\n" +
             "!                                 !\n" +
@@ -70,26 +70,21 @@ public class Art {
             "|      d8                d100     |\n" +
             "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
 
-    private static String spacer = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
-    private static String bigSpacer = "+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+";
+    private static final String spacer = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
+    private static final String bigSpacer = "+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+";
 
-    private static String diceBoxCover = "__________________________";
+    private static final String diceBoxCover = "__________________________";
 
-
-
-
-    public static String creatureCreatorMenu = """
-                                                        +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-+
-                                                        |      1.Create Creature         |
-                                                        !      2.Return                  !
-                                                        +~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-+
-            """;
-
-    public static String creatureCreatorMenu2 = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n|       1.Create Creature         |\n!       2.Return                  !\n+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
-
-
-    private static String placer = ">";
-    private static String backToMenu = "Press ENTER to return to the main menu...";
+    private static final String creatureCreatorMenu2 = "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+\n" +
+            "|      1.Create Creature          |\n" +
+            "!      2.List Creatures           !\n" +
+            "|      3.Remove Creatures         |\n" +
+            "!                                 !\n" +
+            "|      0.Return                   |\n" +
+            "+~-~-~-~-~-~-~-~<*>~-~-~-~-~-~-~-~+";
+    private static final String creatureCreatorName = "Enter the name of the creature: ";
+    private static final String placer = ">";
+    private static final String backToMenu = "Press ENTER to return to the main menu...";
     public static String map = """ 
             +~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+
             |                                                                                                                                        |
@@ -127,16 +122,12 @@ public class Art {
 
     public static void logo() {
         QOL.setDraw(46);
-        System.out.println(QOL.makeBold(logo3));
+        System.out.println(QOL.makeBackgroundBLACK(QOL.makeBold(logo3)));
     }
 
-    public static void startMenu() {
-        String text = QOL.centerText(startMenu, 96);
-        System.out.print(text);
-    }
+    public static void mainMenu() {
+        System.out.println((QOL.centerText(startMenu, 96)));
 
-    public static void setDiceBoxCover() {
-        System.out.print(diceBoxCover);
     }
 
     public static void nameGenMenu1() {
@@ -175,7 +166,11 @@ public class Art {
     }
 
     public static void creatureCreatorMenu() {
-        String text = QOL.centerText(creatureCreatorMenu2, 96);
-        System.out.print(text);
+        System.out.println(QOL.centerText(creatureCreatorMenu2, 96));
     }
+
+    public static void setCreatureCreatorName() {
+        System.out.print(QOL.centerText(creatureCreatorName,96));
+    }
+
 }

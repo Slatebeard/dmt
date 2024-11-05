@@ -5,8 +5,10 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class CreatureCreator {
-    private Scanner sc = new Scanner(System.in);
-    private ArrayList<String> sumList = new ArrayList<>();
+    private final Scanner sc = new Scanner(System.in);
+    private final ArrayList<String> sumList = new ArrayList<>();
+    private boolean running = true;
+    private boolean creating = true;
 
     public CreatureCreator() {
         runMenu();
@@ -14,9 +16,6 @@ public class CreatureCreator {
 
     private void runMenu() {
 
-
-        // Flags
-        boolean running = true;
 
         // Logic
         while (running) {
@@ -31,6 +30,10 @@ public class CreatureCreator {
                         createCreature();
                         break;
                     case 2:
+                        break;
+                    case 3:
+                    case 4:
+                    case 0:
                         running = false;
                         break;
                     default:
@@ -48,22 +51,27 @@ public class CreatureCreator {
         // Variables
         String name = "";
 
-        // Flags
-        boolean creating = true;
-
         QOL.clearConsole();
         Art.logo();
 
         // Logic
         while (creating) {
 
-
-            // Name
+            // NAME
             do {
-                System.out.print("Enter the name of the creature: ");
+                Art.setCreatureCreatorName();
                 Art.placer();
                 name = sc.next();
-            } while (name.length() < 1);
+
+                if (name.equals("0")) {
+                    creating = false;
+                    running = false;
+                    break;
+                }
+            } while (name.length() <= 1);
+
+            if (!creating) break;
+
 
             sumBuild(name);
             QOL.menuRefresh();
@@ -72,6 +80,7 @@ public class CreatureCreator {
 
             // Type
             int i = 1;
+
             for (Creature.type type : Creature.type.values()) {
                 System.out.println(i + ". " + type);
                 i++;
@@ -80,12 +89,16 @@ public class CreatureCreator {
             System.out.println("Choose a creature type: ");
             Art.placer();
             int typeChoice = sc.nextInt();
+
+            if (typeChoice == 0) break;
+
             Creature.type creatureType = Creature.type.values()[typeChoice - 1];
 
             sumBuild(creatureType);
             QOL.menuRefresh();
             printSummary();
             QOL.setLine(1);
+
 
             // Alignment
             i = 1;
@@ -97,6 +110,9 @@ public class CreatureCreator {
             System.out.println("Choose an alignment: ");
             Art.placer();
             int alignmentChoice = sc.nextInt();
+
+            if (alignmentChoice == 0) break;
+
             Creature.allignment creatureAlignment = Creature.allignment.values()[alignmentChoice - 1];
 
             sumBuild(creatureAlignment);
@@ -114,6 +130,9 @@ public class CreatureCreator {
             System.out.println("Choose a size: ");
             Art.placer();
             int sizeChoice = sc.nextInt();
+
+            if (sizeChoice == 0) break;
+
             Creature.size creatureSize = Creature.size.values()[sizeChoice - 1];
 
             sumBuild(creatureSize);
@@ -131,6 +150,9 @@ public class CreatureCreator {
             System.out.println("Choose a category: ");
             Art.placer();
             int categoryChoice = sc.nextInt();
+
+            if (categoryChoice == 0) break;
+
             Creature.creatureType creatureCategory = Creature.creatureType.values()[categoryChoice - 1];
 
             sumBuild(creatureCategory);
@@ -142,6 +164,8 @@ public class CreatureCreator {
             System.out.print("Enter the level of the creature: ");
             Art.placer();
             int level = sc.nextInt();
+
+            if (level == 0) break;
 
             sumBuild(level);
             QOL.menuRefresh();
@@ -179,9 +203,13 @@ public class CreatureCreator {
 
 
     private void printSummary() {
-        System.out.println("Current Summary:");
+        Art.spacer();
+        QOL.setDraw(31);
+        System.out.print("Current Summary:" + "\n");
         for (String item : sumList) {
-            System.out.println("- " + item);
+            QOL.setDraw(33);
+            System.out.print("- " + item + "\n");
+
         }
     }
 }

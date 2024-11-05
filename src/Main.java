@@ -19,7 +19,7 @@ public class Main {
         while (running) {
             QOL.clearConsole();
             Art.logo();
-            Art.startMenu();
+            Art.mainMenu();
             Art.placer();
 
             try {

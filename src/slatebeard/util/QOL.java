@@ -1,5 +1,8 @@
 package slatebeard.util;
+
 public class QOL {
+
+    private static final String RESET = "\033[0m";
 
     public static void clearConsole() {
         try {
@@ -15,57 +18,55 @@ public class QOL {
     }
 
     // COLORS
-        //Ints
-    public static String makeRed (int number) {
+    //Ints
+    public static String makeRed(int number) {
         String RED = "\033[0;31m";
-        String RESET = "\033[0m";
         return RED + number + RESET;
     }
 
-    public static String makeGreen (int number) {
+    public static String makeGreen(int number) {
         String GREEN = "\033[0;32m";
-        String RESET = "\033[0m";
         return GREEN + number + RESET;
     }
-        // Strings
-    public static String makeTextRed (String text) {
-        String RED = "\033[0;31m";
-        String RESET = "\033[0m";
 
+    // Strings
+    public static String makeTextRed(String text) {
+        String RED = "\033[0;31m";
         return RED + text + RESET;
     }
 
-    public static String makeTextGreen (String text) {
+    public static String makeTextGreen(String text) {
         String GREEN = "\033[0;32m";
-        String RESET = "\033[0m";
         return GREEN + text + RESET;
     }
 
     public static String makeBold(String text) {
         String BOLD = "\u001B[1m";
-        String RESET = "\033[0m";
         return BOLD + text + RESET;
     }
 
 
+    public static Object makeBackgroundBLACK(Object chars) {
+        String BLACK_BACKGROUND = "\u001B[40m";
+        return BLACK_BACKGROUND + chars + RESET;
+    }
 
-    public static String debugStringLength(String text) {
-        int amountChars = text.length();
-        String fastStringConvert = amountChars + "";
-        return fastStringConvert;
+    public static Object makeBackgroundRED(Object chars) {
+        String RED_BACKGROUND = "\u001B[41m";
+        return RED_BACKGROUND + chars + RESET;
     }
 
 
+    public static String debugStringLength(String text) {
+        int amountChars = text.length();
+        return amountChars + "";
+    }
 
-
-
-
-    public static String setLine (int amount) {
+    public static void setLine(int amount) {
         String line = "";
         for (int i = 0; i < amount; i++) {
             System.out.println();
         }
-        return line;
     }
 
     public static String centerText(String text, int width) {
@@ -80,8 +81,7 @@ public class QOL {
                 centeredText.append(line).append("\n");
             }
         }
-        String output = centeredText.toString();
-        return output;
+        return centeredText.toString();
     }
 
     public static void menuRefresh() {
@@ -89,12 +89,11 @@ public class QOL {
         Art.logo();
     }
 
-    public static String setDraw(int amount) {
+    public static void setDraw(int amount) {
         String line = " ";
         for (int i = 0; i < amount; i++) {
             System.out.print(line);
         }
-        return line;
     }
 
     public static void debug() {
