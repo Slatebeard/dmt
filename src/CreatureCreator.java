@@ -16,7 +16,6 @@ public class CreatureCreator {
 
     private void runMenu() {
 
-
         // Logic
         while (running) {
             QOL.clearConsole();
@@ -49,13 +48,15 @@ public class CreatureCreator {
 
     private void createCreature() {
         // Variables
-        String name = "";
+        String name;
 
         QOL.clearConsole();
         Art.logo();
 
+
         // Logic
         while (creating) {
+            Art.spacer();
 
             // NAME
             do {
@@ -72,19 +73,28 @@ public class CreatureCreator {
 
             if (!creating) break;
 
-
             sumBuild(name);
+
             QOL.menuRefresh();
             printSummary();
             QOL.setLine(1);
 
             // Type
             int i = 1;
+            int counter = 0;
 
             for (Creature.type type : Creature.type.values()) {
-                System.out.println(i + ". " + type);
-                i++;
+
+                if (counter < 5) {
+                    System.out.println(i + ". " + type);
+                    i++;
+                    counter++;
+                } else {
+                    QOL.setLine(1);
+                    counter = 0;
+                }
             }
+
             QOL.setLine(1);
             System.out.println("Choose a creature type: ");
             Art.placer();
@@ -95,6 +105,7 @@ public class CreatureCreator {
             Creature.type creatureType = Creature.type.values()[typeChoice - 1];
 
             sumBuild(creatureType);
+
             QOL.menuRefresh();
             printSummary();
             QOL.setLine(1);
@@ -141,10 +152,19 @@ public class CreatureCreator {
             QOL.setLine(1);
 
             // Category
+            counter = 0;
             i = 1;
+            QOL.setDraw(20);
             for (Creature.creatureType category : Creature.creatureType.values()) {
-                System.out.println(i + ". " + category);
-                i++;
+                if (counter < 5) {
+                    System.out.print(QOL.makeBackgroundBLACK(i) + ". " + category + " ");
+                    i++;
+                    counter++;
+                } else {
+                    QOL.setLine(1);
+                    QOL.setDraw(20);
+                    counter = 0;
+                }
             }
             QOL.setLine(1);
             System.out.println("Choose a category: ");
@@ -180,8 +200,6 @@ public class CreatureCreator {
                 creating = false;
             }
         }
-
-
         System.out.println("Final Creature Summary:");
         for (String entry : sumList) {
             System.out.println("- " + entry);
@@ -201,15 +219,21 @@ public class CreatureCreator {
         sumList.add(String.valueOf(entry));
     }
 
-
     private void printSummary() {
         Art.spacer();
-        QOL.setDraw(31);
+        QOL.setDraw(40);
         System.out.print("Current Summary:" + "\n");
+        int counter = 0;
         for (String item : sumList) {
-            QOL.setDraw(33);
-            System.out.print("- " + item + "\n");
-
+            if (counter < 5) {
+                QOL.setDraw(33);
+                System.out.print("- " + item + "\n");
+                counter++;
+            } else if (counter > 5){
+                QOL.setLine(1);
+                counter = 0;
+            }
         }
+        Art.spacer();
     }
 }
