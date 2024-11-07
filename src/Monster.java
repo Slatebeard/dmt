@@ -4,7 +4,7 @@ public class Monster extends Creature {
     private int challengeRating;
 
     // Constructor
-    public Monster(String name, Creature.type creatureType, Creature.allignment creatureAlignment, Creature.size creatureSize, Creature.creatureType creatureCategory,
+    public Monster(String name, Creature.type creatureType, alignment creatureAlignment, Creature.size creatureSize, Creature.creatureType creatureCategory,
                    int level, int healthPoints, int armorClass, int speed,
                    int challengeRating) {
 

@@ -151,6 +151,10 @@ public class Art {
         System.out.print(placer);
     }
 
+    public static void centerPlacer() {
+        System.out.print(QOL.centerText(placer,96));
+    }
+
     public static void spacer() {
         String text = QOL.centerText(spacer, 96);
         System.out.print(text);

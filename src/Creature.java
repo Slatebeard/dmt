@@ -9,7 +9,7 @@ public abstract class Creature {
     }
 
 
-    public enum allignment {
+    public enum alignment {
         LAWFUL_GOOD,
         NEUTRAL_GOOD,
         CHAOTIC_GOOD,
@@ -51,7 +51,7 @@ public abstract class Creature {
 
     // Fields
     private Creature.type creatureType;
-    private Creature.allignment creatureAlignment;
+    private alignment creatureAlignment;
     private Creature.size creatureSize;
     private Creature.creatureType creatureCategory;
 
@@ -64,7 +64,7 @@ public abstract class Creature {
 
 
     // Constructor
-    public Creature(String name, Creature.type creatureType, Creature.allignment creatureAlignment, Creature.size creatureSize, Creature.creatureType creatureCategory,
+    public Creature(String name, Creature.type creatureType, alignment creatureAlignment, Creature.size creatureSize, Creature.creatureType creatureCategory,
                     int level, int healthPoints, int armorClass, int speed) {
         this.name = name;
         this.creatureType = creatureType;

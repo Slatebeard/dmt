@@ -47,20 +47,18 @@ public class CreatureCreator {
     }
 
     private void createCreature() {
-        // Variables
-        String name;
 
+        String name;
         QOL.clearConsole();
         Art.logo();
 
-
-        // Logic
         while (creating) {
             Art.spacer();
 
             // NAME
             do {
                 Art.setCreatureCreatorName();
+                QOL.setDraw(47);
                 Art.placer();
                 name = sc.next();
 
@@ -77,7 +75,6 @@ public class CreatureCreator {
 
             QOL.menuRefresh();
             printSummary();
-            QOL.setLine(1);
 
             // Type
             int i = 1;
@@ -86,6 +83,7 @@ public class CreatureCreator {
             for (Creature.type type : Creature.type.values()) {
 
                 if (counter < 5) {
+                    QOL.setDraw(35);
                     System.out.println(i + ". " + type);
                     i++;
                     counter++;
@@ -95,9 +93,9 @@ public class CreatureCreator {
                 }
             }
 
-            QOL.setLine(1);
+            Art.spacer();
+            QOL.setDraw(35);
             System.out.println("Choose a creature type: ");
-            Art.placer();
             int typeChoice = sc.nextInt();
 
             if (typeChoice == 0) break;
@@ -108,15 +106,24 @@ public class CreatureCreator {
 
             QOL.menuRefresh();
             printSummary();
-            QOL.setLine(1);
-
 
             // Alignment
             i = 1;
-            for (Creature.allignment alignment : Creature.allignment.values()) {
-                System.out.println(i + ". " + alignment);
+            Creature.alignment[] alignments = Creature.alignment.values();
+            int mid = (alignments.length + 1) / 2;
+
+            QOL.setDraw(30);
+            for (int j = 0; j < mid; j++) {
+                String leftColumn = i + ". " + alignments[j].toString();
+                String rightColumn = (j + mid < alignments.length) ? (i + mid) + ". " + alignments[j + mid].toString() : "";
+
+                System.out.printf("%-20s %s%n", leftColumn, rightColumn);
+                QOL.setDraw(30);
                 i++;
             }
+
+
+
             QOL.setLine(1);
             System.out.println("Choose an alignment: ");
             Art.placer();
@@ -124,7 +131,7 @@ public class CreatureCreator {
 
             if (alignmentChoice == 0) break;
 
-            Creature.allignment creatureAlignment = Creature.allignment.values()[alignmentChoice - 1];
+            Creature.alignment creatureAlignment = Creature.alignment.values()[alignmentChoice - 1];
 
             sumBuild(creatureAlignment);
             QOL.menuRefresh();
