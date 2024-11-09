@@ -1,6 +1,5 @@
 package slatebeard.util;
 import java.util.Scanner;
-import javax.swing.event.*;
 
 public class QIO {
 

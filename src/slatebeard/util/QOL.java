@@ -16,7 +16,7 @@ public class QOL {
             e.printStackTrace();
         }
     }
-
+    //TODO Fix methods to Obejcts
     // COLORS
     //Ints
     public static String makeRed(int number) {
@@ -33,6 +33,11 @@ public class QOL {
     public static String makeTextRed(String text) {
         String RED = "\033[0;31m";
         return RED + text + RESET;
+    }
+
+    public static Object makeGreen(Object chars) {
+        String GREEN = "\033[0;31m";
+        return GREEN + chars + RESET;
     }
 
     public static String makeTextGreen(String text) {
