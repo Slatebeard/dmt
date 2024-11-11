@@ -54,7 +54,7 @@ public class CreatureCreator {
 
         while (creating) {
             Art.spacer();
-
+            QOL.setDraw(1);
             // NAME
             do {
                 Art.setCreatureCreatorName();
