@@ -95,7 +95,7 @@ public class CreatureCreator {
 
             Art.spacer();
             QOL.setDraw(35);
-            System.out.println("Choose a creature type: ");
+            System.out.print("Choose a creature type: ");
             int typeChoice = sc.nextInt();
 
             if (typeChoice == 0) break;
@@ -123,10 +123,10 @@ public class CreatureCreator {
             }
 
 
-
+            Art.spacer();
             QOL.setLine(1);
-            System.out.println("Choose an alignment: ");
-            Art.placer();
+            QOL.setDraw(33);
+            System.out.print("Choose an alignment: ");
             int alignmentChoice = sc.nextInt();
 
             if (alignmentChoice == 0) break;

@@ -1,8 +1,5 @@
 import slatebeard.util.Art;
 import slatebeard.util.QOL;
-import slatebeard.util.QIO;
-
-import javax.swing.event.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -147,8 +144,8 @@ public class DiceRoller {
 
             diceBank.clear();
 
-            QOL.setLine(2);
-            QOL.setDraw(15);
+            QOL.setLine(1);
+            QOL.setDraw(14);
             System.out.print("Press ENTER to return to the main menu or press 1 to roll some more...");
 
 
