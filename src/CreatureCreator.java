@@ -116,13 +116,12 @@ public class CreatureCreator {
             for (int j = 0; j < mid; j++) {
                 String leftColumn = i + ". " + alignments[j].toString();
                 String rightColumn = (j + mid < alignments.length) ? (i + mid) + ". " + alignments[j + mid].toString() : "";
-
                 System.out.printf("%-20s %s%n", leftColumn, rightColumn);
                 QOL.setDraw(30);
                 i++;
             }
 
-
+            System.out.print("\n");
             Art.spacer();
             QOL.setLine(1);
             QOL.setDraw(33);
@@ -136,17 +135,27 @@ public class CreatureCreator {
             sumBuild(creatureAlignment);
             QOL.menuRefresh();
             printSummary();
-            QOL.setLine(1);
 
             // Size
             i = 1;
-            for (Creature.size size : Creature.size.values()) {
-                System.out.println(i + ". " + size);
-                i++;
+            Creature.size[] sizes = Creature.size.values();
+            mid = (sizes.length) / 2;
+            
+            QOL.setDraw(33);
+            for (int j = 0; j < mid; j++) {
+                String leftColumn = i + ". " + sizes[j].toString();
+                String rightColumn = (j + mid < sizes.length) ? (i + mid) + ". " + sizes[j + mid].toString() : "";
+                System.out.printf("%-15s %s%n", leftColumn, rightColumn);
+                if (j < 2 ) {
+                    QOL.setDraw(33);
+                    i++;
+                } else {
+                    Art.spacer();
+                }
             }
             QOL.setLine(1);
-            System.out.println("Choose a size: ");
-            Art.placer();
+            QOL.setDraw(33);
+            System.out.print("Choose a size: ");
             int sizeChoice = sc.nextInt();
 
             if (sizeChoice == 0) break;
@@ -159,23 +168,26 @@ public class CreatureCreator {
             QOL.setLine(1);
 
             // Category
-            counter = 0;
             i = 1;
-            QOL.setDraw(20);
-            for (Creature.creatureType category : Creature.creatureType.values()) {
-                if (counter < 5) {
-                    System.out.print(QOL.makeBackgroundBLACK(i) + ". " + category + " ");
+            Creature.creatureType[] types = Creature.creatureType.values();
+            mid = (types.length) / 2;
+        
+            for (int j = 0; j < mid; j++) {
+                String leftColumn = i + ". " + types[j].toString();
+                String rightColumn = (j + mid < types.length) ? (i + mid) + ". " + types[j + mid].toString() : "";
+                
+                if (j < 5 ) {
+                    QOL.setDraw(33);
+                    System.out.printf("%-15s %s%n", leftColumn, rightColumn);
                     i++;
-                    counter++;
-                } else {
-                    QOL.setLine(1);
-                    QOL.setDraw(20);
-                    counter = 0;
                 }
             }
+            
+            Art.spacer(); 
             QOL.setLine(1);
-            System.out.println("Choose a category: ");
-            Art.placer();
+            QOL.setDraw(33); 
+            System.out.print("Choose a category: ");
+            
             int categoryChoice = sc.nextInt();
 
             if (categoryChoice == 0) break;

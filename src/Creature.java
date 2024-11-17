@@ -1,52 +1,75 @@
 public abstract class Creature {
 
     public enum type {
-        NPC,
-        MONSTER,
-        PLAYER,
-        NAMED_CHARACTER,
-        GOD;
+        Npc,
+        Monster,
+        Player,
+        Named_Character,
+        God;
+
+        @Override
+        public String toString() {
+            return name().replace("_", " ");
+        }
     }
 
 
     public enum alignment {
-        LAWFUL_GOOD,
-        NEUTRAL_GOOD,
-        CHAOTIC_GOOD,
-        LAWFUL_NEUTRAL,
-        TRUE_NEUTRAL,
-        CHAOTIC_NEUTRAL,
-        LAWFUL_EVIL,
-        NEUTRAL_EVIL,
-        CHAOTIC_EVIL;
+        Lawful_Good,
+        Neutral_Good,
+        Chaotic_Good,
+        Lawful_Neutral,
+        True_Neutral,
+        Chaotic_Neutral,
+        Lawful_Evil,
+        Neutral_Evil,
+        Chaotic_Evil;
+        
+        @Override
+        public String toString() {
+            return name().replace("_", " ");
+        }
+
     }
 
 
     public enum size {
-        TINY,
-        SMALL,
-        MEDIUM,
-        LARGE,
-        HUGE,
-        GARGANTUAN;
+        Tiny,
+        Small,
+        Medium,
+        Large,
+        Huge,
+        Gargantuan;
+        
+        @Override
+        public String toString() {
+            return name().replace("_", " ");
+        }
+
     }
 
 
     public enum creatureType {
-        ABERRATION,
-        BEAST,
-        CELESTIAL,
-        CONSTRUCT,
-        DRAGON,
-        ELEMENTAL,
-        FEY,
-        FIEND,
-        GIANT,
-        HUMANOID,
-        MONSTROSITY,
-        OOZE,
-        PLANT,
-        UNDEAD;
+        Aberration,
+        Beast,
+        Celestial,
+        Construct,
+        Dragon,
+        Elemental,
+        Fey,
+        Fiend,
+        Giant,
+        Humanoid,
+        Monstrosity,
+        Ooze,
+        Plant,
+        Undead;
+
+        @Override
+        public String toString() {
+            return name().replace("_", " ");
+        }
+
     }
 
     // Fields
@@ -76,5 +99,32 @@ public abstract class Creature {
         this.armorClass = armorClass;
         this.speed = speed;
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
