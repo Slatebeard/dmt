@@ -1,7 +1,6 @@
 import slatebeard.util.Art;
 import slatebeard.util.QOL;
 
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -9,6 +8,7 @@ import java.util.InputMismatchException;
 public class CreatureCreator {
     private final Scanner sc = new Scanner(System.in);
     private final ArrayList<String> sumList = new ArrayList<>();
+    private final MonsterBook monsterBook = new MonsterBook();
     private boolean running = true;
     private boolean creating = true;
 
@@ -225,12 +225,22 @@ public class CreatureCreator {
             String correct = sc.next();
             
             if (correct.equalsIgnoreCase("y")) {
+                String lname = sumList.get(0);
+                Creature.type lcreatureType = Creature.type.valueOf(sumList.get(1).toUpperCase());
+                Creature.alignment lcreatureAlignment = Creature.alignment.valueOf(sumList.get(2).toUpperCase());
+                Creature.size lcreatureSize = Creature.size.valueOf(sumList.get(3).toUpperCase());
+                Creature.creatureType lcreatureCategory = Creature.creatureType.valueOf(sumList.get(4).toUpperCase());
+                int llevel = Integer.parseInt(sumList.get(5));   
+
+                Creature creature = new Monster(lname, lcreatureType, lcreatureAlignment, lcreatureSize , lcreatureCategory, llevel, 0, 0, 0, 0);
+
+                monsterBook.addCreature(creature);
+
+                System.out.println("Creature recorded in the Monster Book");
+
+
                 creating = false;
             }
-        }
-        System.out.println("Final Creature Summary:");
-        for (String entry : sumList) {
-            System.out.println("- " + entry);
         }
     }
 
