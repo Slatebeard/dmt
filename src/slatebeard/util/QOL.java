@@ -68,7 +68,6 @@ public class QOL {
     }
 
     public static void setLine(int amount) {
-        String line = "";
         for (int i = 0; i < amount; i++) {
             System.out.println();
         }

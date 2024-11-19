@@ -1,5 +1,7 @@
 import slatebeard.util.Art;
 import slatebeard.util.QOL;
+
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -117,14 +119,17 @@ public class CreatureCreator {
                 String leftColumn = i + ". " + alignments[j].toString();
                 String rightColumn = (j + mid < alignments.length) ? (i + mid) + ". " + alignments[j + mid].toString() : "";
                 System.out.printf("%-20s %s%n", leftColumn, rightColumn);
-                QOL.setDraw(30);
                 i++;
+                if (i < 6) {
+                    QOL.setDraw(30);
+                } else {
+                    Art.spacer();
+                }
+
             }
 
-            System.out.print("\n");
-            Art.spacer();
             QOL.setLine(1);
-            QOL.setDraw(33);
+            QOL.setDraw(35);
             System.out.print("Choose an alignment: ");
             int alignmentChoice = sc.nextInt();
 
@@ -200,21 +205,25 @@ public class CreatureCreator {
             QOL.setLine(1);
 
             // Level
+            QOL.setDraw(35);
             System.out.print("Enter the level of the creature: ");
-            Art.placer();
+            
             int level = sc.nextInt();
 
             if (level == 0) break;
 
             sumBuild(level);
+            
             QOL.menuRefresh();
+            
             printSummary();
+            
             QOL.setLine(1);
 
             // Confirmation
-            System.out.println("Is this information correct? (Y/N)");
-            Art.placer();
+            System.out.println(QOL.centerText("Is this information correct? (y/n)",96));
             String correct = sc.next();
+            
             if (correct.equalsIgnoreCase("y")) {
                 creating = false;
             }
@@ -244,11 +253,11 @@ public class CreatureCreator {
         System.out.print("Current Summary:" + "\n");
         int counter = 0;
         for (String item : sumList) {
-            if (counter < 5) {
+            if (counter < 6) {
                 QOL.setDraw(33);
                 System.out.print("- " + item + "\n");
                 counter++;
-            } else if (counter > 5){
+            } else if (counter > 6){
                 QOL.setLine(1);
                 counter = 0;
             }

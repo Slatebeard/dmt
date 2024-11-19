@@ -85,6 +85,7 @@ public class Art {
     private static final String creatureCreatorName = "Enter the name of the creature: ";
     private static final String placer = ">";
     private static final String backToMenu = "Press ENTER to return to the main menu...";
+    private static final String creatureCreatorAligment = "Choose an aligment: ";
     public static String map = """ 
             +~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-+
             |                                                                                                                                        |
@@ -175,6 +176,10 @@ public class Art {
 
     public static void setCreatureCreatorName() {
         System.out.print(QOL.centerText(creatureCreatorName,96));
+    }
+
+    public static void creatureCreatorAligment() {
+        System.out.print(QOL.centerText(creatureCreatorAligment, 96));
     }
 
 }
